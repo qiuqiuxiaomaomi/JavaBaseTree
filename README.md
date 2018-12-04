@@ -131,3 +131,34 @@ Java类加载过程
      使用：
      卸载：
 </pre>
+
+<pre>
+JAVA中Long与Integer
+
+     Long与Integer都将 -128~127 这些对象缓存了;
+     
+     LongCache类
+     IntegerCache类
+</pre>
+
+![](https://i.imgur.com/O1cyHZA.png)
+
+<pre>
+Hash与Hash扩容
+
+     HashMap扩容
+
+     1）HashTable
+     2) HashMap
+     3) TreeMap
+     5) LinkedHashMap
+</pre>
+
+<pre>
+Transient关键字
+      一个对象只要实现了Serilizable接口，这个对象就可以被序列化，java的这种序列化模式为
+   开发者提供了很多便利，可以不必关系具体序列化的过程，只要这个类实现了Serilizable接口，
+   这个的所有属性和方法都会自动序列化。但是有种情况是有些属性是不需要序列号的，所以就用到
+   这个关键字。只需要实现Serilizable接口，将不需要序列化的属性前添加关键字transient，序
+   列化对象的时候，这个属性就不会序列化到指定的目的地中
+</pre>
