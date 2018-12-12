@@ -252,5 +252,36 @@ static表示“全局”或者“静态”的意思，用来修饰成员变量�
 </pre>
 
 <pre>
+Class.forName和classloader
 
+      Class.forName(className)方法，内部实际调用的方法是  Class.forName(className,true,classloader);
+
+      第2个boolean参数表示类是否需要初始化，  Class.forName(className)默认是需要初始化。
+
+      一旦初始化，就会触发目标对象的 static块代码执行，static参数也也会被再次初始化。
+
+     
+      ClassLoader.loadClass(className)方法，内部实际调用的方法
+      是  ClassLoader.loadClass(className,false);
+
+      第2个 boolean参数，表示目标对象是否进行链接，false表示不进行链接，由上面介绍可以，
+
+      不进行链接意味着不进行包括初始化等一些列步骤，那么静态块和静态对象就不会得到执行
+</pre>
+
+<pre>
+string、stringbuilder、stringbuffer区别
+
+      String：
+             因为有“final”修饰符，所以可以知道string对象是不可变的。
+　　　　      private final char value[];
+
+      StringBuilder与StringBuffer：
+             都继承自AbstractStringBuilder类；
+             在AbstractStringBuilder中也是使用字符数组保存字符串，可知这两种对象都是可变的。
+　　　　      char[] value;
+
+      String类型是线程安全的;
+      StringBuffer对方法加了同步锁或者对调用的方法加了同步锁，所以是线程安全的;
+      StringBuilder并没有对方法进行加同步锁，所以是非线程安全的
 </pre>
