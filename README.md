@@ -285,3 +285,13 @@ string、stringbuilder、stringbuffer区别
       StringBuffer对方法加了同步锁或者对调用的方法加了同步锁，所以是线程安全的;
       StringBuilder并没有对方法进行加同步锁，所以是非线程安全的
 </pre>
+
+<pre>
+Hash冲突解决方法：
+      1）拉链法
+      2）线性探测再散列
+</pre>
+
+<pre>
+
+</pre>
