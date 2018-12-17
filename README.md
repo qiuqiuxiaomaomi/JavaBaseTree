@@ -293,5 +293,35 @@ Hash冲突解决方法：
 </pre>
 
 <pre>
+Java 对象生命周期
 
+      1) 创建阶段
+      2）应用阶段
+      3）不可见阶段
+      5）不可达阶段
+      6）收集阶段
+      7）终结阶段
+      8）对象空间重新分配阶段
+</pre>
+
+线程非安全
+
+![](https://i.imgur.com/iDQg9mP.png)
+
+线程安全
+
+![](https://i.imgur.com/1X9SvOs.png)
+
+<pre>
+SimpleDateFormat的线程安全性
+
+      DateFormat, SimpleDateFormat类都不是线程安全的。
+
+      在parse方法的最后，会调用CalendarBuilder的establish方法，入参就
+      是SimpleDateFormat维护的Calendar实例，在establish方法中会调用calendar的
+      clear方法。
+
+      可知SimpleDateFormat维护的用于format和parse方法计算日期-时间的calendar被清
+      空了，如果此时线程A将calendar清空且没有设置新值，线程B也进入parse方法用
+      到了SimpleDateFormat对象中的calendar对象，此时就会产生线程安全问题
 </pre>
