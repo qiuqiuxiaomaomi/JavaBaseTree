@@ -325,3 +325,14 @@ SimpleDateFormat的线程安全性
       空了，如果此时线程A将calendar清空且没有设置新值，线程B也进入parse方法用
       到了SimpleDateFormat对象中的calendar对象，此时就会产生线程安全问题
 </pre>
+
+<pre>
+sleep(),wait()区别:
+
+      1)父类不同，sleep()来自Thread, wait()来自Object
+      2)sleep()没有释放锁，wait()释放了锁。
+        sleep()不换出系统资源，wait（）进入等待对垒，其他线程可以使用CPU资源。
+      3）使用范围
+            wait(),notify()只能同步空值或者同步控制块内，而sleep（）可以在任何地方使用。
+            sleep()必须捕获异常而wait(),notify()不需要捕获异常。
+</pre>
